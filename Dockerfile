@@ -9,5 +9,5 @@ FROM node:18-alpine AS final
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --production 
-COPY --from-build /app/build ./build
+COPY --from=build /app/build ./build
 CMD ["npm","start"]
